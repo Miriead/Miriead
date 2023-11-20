@@ -14,7 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import common.ImagePanel;
+import home.HomeFrame;
 import result.ResultFrame;
+import user.User;
 
 /**
  * 책 추천 질문 화면 클래스
@@ -30,8 +32,12 @@ public class QuestionFrame extends JFrame {
 	String selectedSubGenre; // 선택한 서브장르 변수
 	String selectedPage; // 선택한 페이지 변수
 	int selectedSchool; // 선택한 학교보유여부 변수
+	
+    private User currentUser;
 
-	public QuestionFrame() {
+	public QuestionFrame(User currentUser) {
+        this.currentUser = currentUser;
+        
 		setTitle("질문 화면");
 		setSize(1015, 720);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,7 +97,6 @@ public class QuestionFrame extends JFrame {
 	private JPanel subGenrePanel() {
 		Map<String, String> subGenreMap = new LinkedHashMap<>();
 
-		// 여기에 각 장르에 따른 서브 장르를 추가
 		if ("novel".equals(selectedGenre)) {
 			subGenreMap.put("로맨스", "로맨스");
 			subGenreMap.put("추리", "추리");
@@ -225,7 +230,7 @@ public class QuestionFrame extends JFrame {
 			System.out.println("모든 질문이 완료되었습니다.");
 
 			setVisible(false);
-			new ResultFrame(selectedGenre, selectedSubGenre, selectedPage, selectedSchool);
+			new ResultFrame(selectedGenre, selectedSubGenre, selectedPage, selectedSchool, currentUser);
 		}
 	}
 
