@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,10 +10,14 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.SwingWorker;
 
 import common.ImagePanel;
 import join.JoinFrame;
@@ -21,7 +26,6 @@ import home.HomeFrame;
 import common.CommonFrame;
 
 public class MainFrame extends JFrame {
-	private List<String> data;
 	private User currentUser; // 사용자 객체 추가
 	
 	public MainFrame() {
@@ -57,14 +61,6 @@ public class MainFrame extends JFrame {
         loginBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 입력한 id와 pw값이 db에 존재하는지 확인하는 코드 작성하기
-            	
-//            	data = CommonFrame.getColumnDataFromTable("novel", "novel_title");
-//
-//                // 데이터 출력
-//                for (String title : data) {
-//                    System.out.println(title);
-//                }
             	
             	String enteredID = idField.getText();
                 String enteredPW = pwField.getText();
@@ -112,7 +108,6 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
         add(mainFrameImg);
     }
-	
 
 	public static void main(String[] args) {
 		MainFrame frame = new MainFrame();

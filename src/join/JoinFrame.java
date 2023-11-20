@@ -44,10 +44,10 @@ public class JoinFrame extends JFrame {
                 boolean registrationSuccessful = registerNewUser(enteredID, enteredPW);
 
                 if (registrationSuccessful) {
-                    System.out.println("가입이 완료되었습니다");
+                	JOptionPane.showMessageDialog(null, "가입이 완료되었습니다");
                     dispose();
                 } else {
-                    System.out.println("가입 실패: 이미 존재하는 ID 또는 오류 발생");
+                	JOptionPane.showMessageDialog(null, "가입 실패: 이미 존재하는 ID 혹은 비밀번호입니다");
                 }
                 
                 dispose();
